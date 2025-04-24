@@ -15,7 +15,7 @@ Here are some of my initial LaTeX application files. The source links for LaTeX 
 - 【使用 Circuitikz 宏包绘制 LaTeX 文档的电路图】https://www.bilibili.com/video/BV1U54y167KB?vd_source=4fd6c4265e65c0785c912874692a3971
 - 【LaTeX 直播之六 - TiKZ 绘图基础入门】https://www.bilibili.com/video/BV1UV41127gC?vd_source=4fd6c4265e65c0785c912874692a3971
 - 【博士汪倾力整理！全网最强大的LaTeX+Sublime Text写作环境-第一集 功能展示（一定要看完再决定要不要安装！）】https://www.bilibili.com/video/BV1wY4y1W7sj?vd_source=4fd6c4265e65c0785c912874692a3971
-
+- https://www.zhihu.com/question/504697221/answer/2263114562 ：这是一个beamer的入门教程。
 
 
 # 复制粘贴一些内容
