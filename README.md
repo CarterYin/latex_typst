@@ -1,7 +1,7 @@
-A self used LaTeX template (modified from yidingg's template), including some usage examples
+Some self used LaTeX and Typst templates，including some usage examples.
 # Tex
- Mainly from yidingg,I change a little.
- 
+## 相关网站
+- https://www.latex-tables.com/
  
  <!-- ============================== -->
  ## Introduction
@@ -223,3 +223,12 @@ A self used LaTeX template (modified from yidingg's template), including some us
  }
  //---------LaTeX Workshop 配置结束-
  ```
+
+# Typst
+## 相关网站
+- https://www.svgrepo.com/collections/blue/  一些typst可能会用到的icon
+- https://www.flaticon.com/free-icons/interest  一些typst可能会用到的icon
+- https://typst.app/docs/guides/guide-for-latex-users/  一个给latex用户的typst导引
+- https://typst.app/universe/search/  模版
+- https://typst-doc-cn.github.io/docs/tutorial/writing-in-typst/  中文typst文档
+
