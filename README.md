@@ -2,6 +2,7 @@ Some self used LaTeX and Typst templates，including some usage examples.
 # Tex
 ## 相关网站
 - https://www.latex-tables.com/
+- https://github.com/UweZiegenhagen/LaTeX-Beamer-Theme-Overview  一个beamer模板的GitHub仓库
  
  <!-- ============================== -->
  ## Introduction
