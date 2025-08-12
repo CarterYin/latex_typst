@@ -1,33 +1,58 @@
-Some self used LaTeX and Typst templates，including some usage examples.
-# Quarkdown
-## 相关网站
-- https://github.com/iamgio/quarkdown
-# Typst
-## 相关网站
-- https://www.svgrepo.com/collections/blue/  一些typst可能会用到的icon
-- https://www.flaticon.com/free-icons/interest  一些typst可能会用到的icon
-- https://typst.app/docs/guides/guide-for-latex-users/  一个给latex用户的typst导引
-- https://typst.app/universe/search/  模版
-- https://typst-doc-cn.github.io/docs/tutorial/writing-in-typst/  中文typst文档
+[//]: # (<br />)
+<p align="center"> <h1 align="center">My Self-Used Templates and Resources</h1>
+<p align="center">
+  <img src="https://img.shields.io/badge/Templates-LaTeX%2C_Typst%2C_Quarkdown-blueviolet" alt="Category">
+</p>
+<div align="center" style="font-family: Arial, sans-serif; padding: 20px; border-radius: 10px; background-color: #f7f9fc;">
+  <p style="font-size: 1.2rem; color: #333; line-height: 1.5; max-width: 800px; margin: 0 auto;">
+    <b><span style="color: #6a0dad;">This repository</span> contains my personal collection of templates and learning resources for <span style="color: #007bff;">LaTeX</span>, <span style="color: #007bff;">Typst</span>, and <span style="color: #007bff;">Quarkdown</span>, including some usage examples and links to helpful websites.</b>
+  </p>
+  <br>
+  <a href="https://github.com/CarterYin" style="text-decoration: none;">
+    <strong style="font-size: 1.4rem; color: #007bff;">CarterYin</strong>
+  </a>
+</div>
 
 
-# Tex
-## 相关网站
-- https://www.latex-tables.com/
-- https://github.com/UweZiegenhagen/LaTeX-Beamer-Theme-Overview  一个beamer模板的GitHub仓库
- 
- <!-- ============================== -->
- ## Introduction
- Here are some of my initial LaTeX application files. The source links for LaTeX related configurations in VS Code that I used are as follows:
- - [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
- - [latex-utilities]https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile
- - [latex-utilities]https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile#latex-workshoplatexbuildforcerecipeusage
- - [CSDN]https://blog.csdn.net/qq_44089921/article/details/107719981
- - [Overleaf]https://cn.overleaf.com/latex/templates?
- 
- <!-- = -->
- ## Code
- The following is the configuration I used(It includes some other configurations, but they are irrelevant)
+
+## 1. Quarkdown
+
+- **GitHub Repository:** [iamgio/quarkdown](https://github.com/iamgio/quarkdown)
+
+---
+
+## 2. Typst
+
+### 2.1 Related Websites
+
+- **Icon Resources (Blue):** [SVGRepo - Blue Icons](https://www.svgrepo.com/collections/blue/)
+- **Icon Resources (General):** [Flaticon - Free Icons](https://www.flaticon.com/free-icons/interest)
+- **Guide for LaTeX Users:** [Typst Guide](https://typst.app/docs/guides/guide-for-latex-users/)
+- **Template Gallery:** [Typst Universe Search](https://typst.app/universe/search/)
+- **Chinese Documentation:** [Typst Doc CN](https://typst-doc-cn.github.io/docs/tutorial/writing-in-typst/)
+
+---
+
+## 3. LaTeX
+
+### 3.1 Related Websites
+
+- **Table Generator:** [LaTeX Tables](https://www.latex-tables.com/)
+- **Beamer Theme Repository:** [LaTeX-Beamer-Theme-Overview](https://github.com/UweZiegenhagen/LaTeX-Beamer-Theme-Overview)
+
+### 3.2 Introduction
+
+Here are some of my initial LaTeX application files. The source links for the **VS Code** configurations I used are as follows:
+
+- **LaTeX Workshop:** [Marketplace](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
+- **Compile Configuration 1:** [LaTeX-Workshop Wiki](https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile)
+- **Compile Configuration 2:** [Force Recipe Usage](https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile#latex-workshoplatexbuildforcerecipeusage)
+- **CSDN Guide:** [CSDN Article](https://blog.csdn.net/qq_44089921/article/details/107719981)
+- **Online Templates:** [Overleaf](https://cn.overleaf.com/latex/templates?)
+
+### 3.3 Code
+
+> The following is the configuration I used (It includes some other configurations, but they are irrelevant).
  ```json
  {
     //---------LaTeX Workshop 配置开始-----------
