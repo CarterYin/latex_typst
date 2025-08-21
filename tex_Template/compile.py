@@ -5,6 +5,7 @@ import subprocess
 import os
 import sys
 import glob
+import re
 from pathlib import Path
 
 def run_command(command, description):
@@ -94,6 +95,41 @@ def fix_tex_file(tex_file):
             )
             print("✅ 修复了缺失的 \\end{cnabstract}")
         
+        # 修复文本中的下划线问题 - 将裸露的下划线转义
+        # 但要避免影响已经在数学模式或命令中的下划线
+        def fix_underscores(match):
+            text = match.group(0)
+            # 如果已经转义或在命令中，不要修改
+            if '\\texttt{' in text or '\\_' in text:
+                return text
+            # 替换裸露的下划线
+            return text.replace('_', '\\_')
+        
+        # 使用正则表达式找到可能有问题的区域
+        patterns_to_fix = [
+            r'\\section\{[^}]*_[^}]*\}',
+            r'\\subsection\{[^}]*_[^}]*\}',
+            r'\\subsubsection\{[^}]*_[^}]*\}',
+            r'\\addcontentsline\{toc\}\{[^}]*\}\{[^}]*_[^}]*\}'
+        ]
+        
+        for pattern in patterns_to_fix:
+            content = re.sub(pattern, fix_underscores, content)
+        
+        # 特别处理一些已知的问题标题
+        problematic_titles = [
+            '数据预处理:backup文件夹',
+            '数据分析:chart文件夹', 
+            '原始数据文件修正:pre_mod文件夹',
+            '模型训练和测试:train_test文件夹'
+        ]
+        
+        for title in problematic_titles:
+            if title in content:
+                fixed_title = title.replace('_', '\\_')
+                content = content.replace(title, fixed_title)
+                print(f"✅ 修复标题中的下划线: {title} -> {fixed_title}")
+        
         # 创建备份
         backup_file = f"{tex_file}.backup"
         if not os.path.exists(backup_file):
@@ -110,6 +146,33 @@ def fix_tex_file(tex_file):
         
     except Exception as e:
         print(f"❌ 修复文件时出错: {e}")
+        return False
+
+def fix_toc_file():
+    """修复目录文件中的下划线问题"""
+    toc_file = "allin.toc"
+    if not os.path.exists(toc_file):
+        return True
+    
+    print("检查并修复.toc文件中的下划线问题...")
+    
+    try:
+        with open(toc_file, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # 替换目录文件中裸露的下划线
+        original_content = content
+        content = re.sub(r'(?<!\\)_', '\\_', content)
+        
+        if content != original_content:
+            with open(toc_file, 'w', encoding='utf-8') as f:
+                f.write(content)
+            print("✅ 修复了.toc文件中的下划线问题")
+        
+        return True
+        
+    except Exception as e:
+        print(f"❌ 修复.toc文件时出错: {e}")
         return False
 
 def clean_intermediate_files(tex_file):
@@ -173,16 +236,22 @@ def compile_latex(tex_file):
             return False
         if not check_tex_file(tex_file):
             return False
+    else:
+        # 即使检查通过，也尝试修复下划线问题
+        fix_tex_file(tex_file)
     
     # 清理旧的中间文件
     clean_intermediate_files(tex_file)
     
     # 第一次编译
-    if not run_command(f"xelatex -interaction=nonstopmode -halt-on-error {tex_file}", "第一次XeLaTeX编译"):
+    if not run_command(f"xelatex -interaction=nonstopmode {tex_file}", "第一次XeLaTeX编译"):
         return False
     
+    # 修复.toc文件中的问题
+    fix_toc_file()
+    
     # 第二次编译（生成目录）
-    if not run_command(f"xelatex -interaction=nonstopmode -halt-on-error {tex_file}", "第二次XeLaTeX编译"):
+    if not run_command(f"xelatex -interaction=nonstopmode {tex_file}", "第二次XeLaTeX编译"):
         return False
     
     # 检查PDF是否生成
@@ -234,6 +303,7 @@ def main():
         print("1. 字体是否正确安装")
         print("2. 图片文件是否存在")
         print("3. 宏包是否完整安装")
+        print("4. 标题中是否有特殊字符需要转义")
         return 1
 
 if __name__ == "__main__":

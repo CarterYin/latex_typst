@@ -705,142 +705,51 @@ original.tsv
 
 \section{模型训练和测试:train\_test文件夹}
 \textbf{使用不同的数据预测生物学年龄}\par
-\textbf{该文件夹下的所有子文件夹的结构如下：}
+\textbf{该文件夹下的所有simple1\_gpu.py位于每个子文件夹的code文件夹下，代码具体实施步骤如下：}
+\begin{enumerate}
+    \item 读取输入的tsv文件。
+    \item 对数据进行预处理，包括去除缺失值、标准化等。
+    \item 校正项计算函数。
+    \item 在四种不同的模型上进行训练。(XGBoost, LightGBM, CatBoost, RandomForest)
+    \item 训练集上进行五折交叉验证寻找最佳超参数。（以MAE为指标）
+    \item 在测试集上分别评估四种模型最佳参数的性能。
+    \item 输出报告。
+\end{enumerate}
+\textbf{一个一键运行所有模型的脚本:run\_all\_models.py}
 
-\begin{center}
-\begin{verbatim}
-train_test/all/
-|-- code/
-|   |-- catboost_info/
-|   |   |-- learn/
-|   |   |-- tmp/
-|   |   |-- catboost_training.json
-|   |   |-- learn_error.tsv
-|   |   |-- time_left.tsv
-|   |-- __pycache__/
-|   |-- hyperparameter_tuning_gpu_report.txt
-|   |-- simple1_gpu.py
-|-- train_all.tsv
-|-- test_all.tsv
-|-- train_age.tsv
-|-- test_age.tsv
-\end{verbatim}
-\end{center}
 
 \subsection*{all}
 \addcontentsline{toc}{subsection}{all}
 
-\textbf{simple1\_gpu.py}：该脚本的主要功能是对所有数据进行模型训练和测试。具体实现步骤如下：
-\begin{enumerate}
-    \item 读取输入的tsv文件。
-    \item 对数据进行预处理，包括去除缺失值、标准化等。
-    \item 校正项计算函数。
-    \item 在四种不同的模型上进行训练。(XGBoost, LightGBM, CatBoost, RandomForest)
-    \item 训练集上进行五折交叉验证寻找最佳超参数。（以MAE为指标）
-    \item 在测试集上分别评估四种模型最佳参数的性能。
-    \item 输出报告。
-\end{enumerate}
+\textbf{simple1\_gpu.py}：该脚本的主要功能是对所有数据进行模型训练和测试。
 
 \subsection*{artery}
 \addcontentsline{toc}{subsection}{artery}
 
-\textbf{simple1\_gpu.py}：该脚本的主要功能是对颈动脉数据进行模型训练和测试。具体实现步骤如下：
-\begin{enumerate}
-    \item 读取输入的tsv文件。
-    \item 对数据进行预处理，包括去除缺失值、标准化等。
-    \item 校正项计算函数。
-    \item 在四种不同的模型上进行训练。(XGBoost, LightGBM, CatBoost, RandomForest)
-    \item 训练集上进行五折交叉验证寻找最佳超参数。（以MAE为指标）
-    \item 在测试集上分别评估四种模型最佳参数的性能。
-    \item 输出报告。
-\end{enumerate}
+\textbf{simple1\_gpu.py}：该脚本的主要功能是对颈动脉数据进行模型训练和测试。
 
 \subsection*{eye}
 \addcontentsline{toc}{subsection}{eye}
 
-\textbf{simple1\_gpu.py}：该脚本的主要功能是对眼科数据进行模型训练和测试。具体实现步骤如下：
-\begin{enumerate}
-    \item 读取输入的tsv文件。
-    \item 对数据进行预处理，包括去除缺失值、标准化等。
-    \item 校正项计算函数。
-    \item 在四种不同的模型上进行训练。(XGBoost, LightGBM, CatBoost, RandomForest)
-    \item 训练集上进行五折交叉验证寻找最佳超参数。（以MAE为指标）
-    \item 在测试集上分别评估四种模型最佳参数的性能。
-    \item 输出报告。
-\end{enumerate}
+\textbf{simple1\_gpu.py}：该脚本的主要功能是对眼科数据进行模型训练和测试。
 
 \subsection*{physiology}
 \addcontentsline{toc}{subsection}{physiology}
 
-\textbf{simple1\_gpu.py}：该脚本的主要功能是对生理数据进行模型训练和测试。具体实现步骤如下：
-\begin{enumerate}
-    \item 读取输入的tsv文件。
-    \item 对数据进行预处理，包括去除缺失值、标准化等。
-    \item 校正项计算函数。
-    \item 在四种不同的模型上进行训练。(XGBoost, LightGBM, CatBoost, RandomForest)
-    \item 训练集上进行五折交叉验证寻找最佳超参数。（以MAE为指标）
-    \item 在测试集上分别评估四种模型最佳参数的性能。
-    \item 输出报告。
-\end{enumerate}
+\textbf{simple1\_gpu.py}：该脚本的主要功能是对生理数据进行模型训练和测试。
 
 \subsection*{ren}
 \addcontentsline{toc}{subsection}{ren}
 
-\textbf{simple1\_gpu.py}：该脚本的主要功能是对人口学数据进行模型训练和测试。具体实现步骤如下：
-\begin{enumerate}
-    \item 读取输入的tsv文件。
-    \item 对数据进行预处理，包括去除缺失值、标准化等。
-    \item 校正项计算函数。
-    \item 在四种不同的模型上进行训练。(XGBoost, LightGBM, CatBoost, RandomForest)
-    \item 训练集上进行五折交叉验证寻找最佳超参数。（以MAE为指标）
-    \item 在测试集上分别评估四种模型最佳参数的性能。
-    \item 输出报告。
-\end{enumerate}
+\textbf{simple1\_gpu.py}：该脚本的主要功能是对人口学数据进行模型训练和测试。
 
 
 \subsection*{newall}
 \addcontentsline{toc}{subsection}{newall}
 
-\textbf{simple1\_gpu.py}：该脚本的主要功能是对新的所有数据（新增了人口学数据）进行模型训练和测试。具体实现步骤如下：
-\begin{enumerate}
-    \item 读取输入的tsv文件。
-    \item 对数据进行预处理，包括去除缺失值、标准化等。
-    \item 校正项计算函数。
-    \item 在四种不同的模型上进行训练。(XGBoost, LightGBM, CatBoost, RandomForest)
-    \item 训练集上进行五折交叉验证寻找最佳超参数。（以MAE为指标）
-    \item 在测试集上分别评估四种模型最佳参数的性能。
-    \item 输出报告。
-\end{enumerate}
+\textbf{simple1\_gpu.py}：该脚本的主要功能是对新的所有数据（新增了人口学数据）进行模型训练和测试。
 
 
-\subsection*{newall\_move}
-\addcontentsline{toc}{subsection}{newall\_move}
-
-\textbf{simple1\_gpu.py}：该脚本的主要功能是对新的所有数据（新增了人口学数据，将人口学数据移到最后）进行模型训练和测试。具体实现步骤如下：
-\begin{enumerate}
-    \item 读取输入的tsv文件。
-    \item 对数据进行预处理，包括去除缺失值、标准化等。
-    \item 校正项计算函数。
-    \item 在四种不同的模型上进行训练。(XGBoost, LightGBM, CatBoost, RandomForest)
-    \item 训练集上进行五折交叉验证寻找最佳超参数。（以MAE为指标）
-    \item 在测试集上分别评估四种模型最佳参数的性能。
-    \item 输出报告。
-\end{enumerate}
-
-
-\subsection*{newall\_remove}
-\addcontentsline{toc}{subsection}{newall\_remove}
-
-\textbf{simple1\_gpu.py}：该脚本的主要功能是对新的所有数据（新增了人口学数据，仅包括is\_female\_baseline字段）进行模型训练和测试。具体实现步骤如下：
-\begin{enumerate}
-    \item 读取输入的tsv文件。
-    \item 对数据进行预处理，包括去除缺失值、标准化等。
-    \item 校正项计算函数。
-    \item 在四种不同的模型上进行训练。(XGBoost, LightGBM, CatBoost, RandomForest)
-    \item 训练集上进行五折交叉验证寻找最佳超参数。（以MAE为指标）
-    \item 在测试集上分别评估四种模型最佳参数的性能。
-    \item 输出报告。
-\end{enumerate}
 
 \section{ICD10数据的处理:ICD10}
 
@@ -911,21 +820,195 @@ train_test/all/
     \item 将处理后的数据写入新的tsv文件中。
 \end{enumerate}
 
+\subsection*{Step 4}
+\addcontentsline{toc}{subsection}{Step 4}
+
+\textbf{step4.py}：该脚本的主要功能是剔除ICD10中不为汉族的样本。具体实现步骤如下：
+\begin{enumerate}
+    \item 读取输入的tsv文件。
+    \item 删除id\_ethnic\_group\_id不为1的样本（保留NA值）
+    \item 对于指定的id\_ethnic\_group\_id字段，只删除值不为1且不为NA的样本个体
+    \item 保留NA值和值为1的样本
+    \item 将处理后的数据写入新的tsv文件中。
+\end{enumerate}
+
+\subsection*{Step 5}
+\addcontentsline{toc}{subsection}{Step 5}
+
+\textbf{step5.py}：该脚本的主要功能是剔除ICD10中方差为0的样本后分成训练集和测试集。具体实现步骤如下：
+\begin{enumerate}
+    \item 读取输入的tsv文件。
+    \item 删除方差为0的列（所有值都相同的列）
+    \item 将数据分为训练集和测试集，比例为4:1
+    \item 将训练集和测试集写入新的tsv文件中。
+\end{enumerate}
+
+\subsection*{Step 6}
+\addcontentsline{toc}{subsection}{Step 6}
+
+\textbf{step6.py}：该脚本的主要功能如下：
+\begin{enumerate}
+    \item 读取输入的tsv文件。
+    \item 遍历数据，对于缺失值超过50\%的字段，剔除该字段。
+    \item 遍历数据，对于缺失的特定字段值，按照优先级规则进行填充。
+    \item 仅保留指定的124个字段。
+    \item 遍历数据，对于缺失的其它字段值，按照填充规则进行填充。
+    \item 将处理后的数据写入新的tsv文件中。
+\end{enumerate}
+
+\begin{center}
+\fbox{
+    \begin{minipage}{0.95\textwidth}
+    \textbf{特定字段填充规则：}
+    \begin{enumerate}
+        \item \textbf{bmi\_x10}：如果为空，使用 \texttt{bmi\_calc\_resurvey2} $\times$ 10 或 \texttt{bmi\_calc\_baseline} $\times$ 10 填充\\
+        \quad 优先级：\texttt{bmi\_calc\_resurvey2} $>$ \texttt{bmi\_calc\_baseline}
+        \item \textbf{standing\_height\_cm\_x10}：如果为空，使用 \texttt{standing\_height\_mm\_resurvey2} 或 \texttt{standing\_height\_mm\_baseline} 填充\\
+        \quad 优先级：\texttt{standing\_height\_mm\_resurvey2} $>$ \texttt{standing\_height\_mm\_baseline}
+        \item \textbf{weight\_kg\_x10\_resurvey3}：如果为空，使用 \texttt{weight\_kg\_x10\_resurvey2} 或 \texttt{weight\_kg\_x10\_baseline} 填充\\
+        \quad 优先级：\texttt{weight\_kg\_x10\_resurvey2} $>$ \texttt{weight\_kg\_x10\_baseline}
+    \end{enumerate}
+    \end{minipage}
+}
+\end{center}
+
+\begin{center}
+\fbox{
+    \begin{minipage}{0.95\textwidth}
+    \textbf{其它填充规则：}
+    \begin{enumerate}
+        \item 如果列只包含少数几个值（≤10个唯一值），按照填充前的比例进行随机填充
+        \item 对于 \texttt{id\_ethnic\_group\_id} 这一列，按照情况1处理
+        \item 如果是其他情况，按照均值填充缺失值
+    \end{enumerate}
+    \end{minipage}
+}
+\end{center}
+
+\subsection*{Step 7\_0base}
+\addcontentsline{toc}{subsection}{Step 7\_0base}
+
+\textbf{该文件夹存放了整个步骤5中的基础数据文件。}\par
+
+
+\subsection*{Step 7\_1eye}
+\addcontentsline{toc}{subsection}{Step 7\_1eye}
+
+\textbf{eye.py}：该脚本的主要功能是筛选眼科相关字段。具体实现步骤如下：
+\begin{enumerate}
+    \item 读取输入的tsv文件。
+    \item 仅保留与眼科相关的字段。
+    \item 将处理后的数据写入新的tsv文件中。
+\end{enumerate}
+
+\subsection*{Step 7\_2artery}
+\addcontentsline{toc}{subsection}{Step 7\_2artery}
+
+\textbf{artery.py}：该脚本的主要功能是筛选动脉相关字段。具体实现步骤如下：
+\begin{enumerate}
+    \item 读取输入的tsv文件。
+    \item 仅保留与动脉相关的字段。
+    \item 将处理后的数据写入新的tsv文件中。
+\end{enumerate} 
+
+\subsection*{Step 7\_3physiology}
+\addcontentsline{toc}{subsection}{Step 7\_3physiology}
+
+\textbf{physiology.py}：该脚本的主要功能是筛选生理相关字段。具体实现步骤如下：
+\begin{enumerate}
+    \item 读取输入的tsv文件。
+    \item 仅保留与生理相关的字段。（不包括年龄）
+    \item 将处理后的数据写入新的tsv文件中。
+\end{enumerate}
+
+\subsection*{Step 7\_4all}
+\addcontentsline{toc}{subsection}{Step 7\_4all}
+
+\textbf{all.py}：该脚本的主要功能是筛选所有指定字段。具体实现步骤如下：
+\begin{enumerate}
+    \item 读取输入的tsv文件。
+    \item 保留所有指定字段。（不包括年龄）
+    \item 将处理后的数据写入新的tsv文件中。
+\end{enumerate}
+
+
+\subsection*{Step 7\_5age}
+\addcontentsline{toc}{subsection}{Step 7\_5age}
+
+\textbf{age.py}：该脚本的主要功能是筛选年龄相关字段。具体实现步骤如下：
+\begin{enumerate}
+    \item 读取输入的tsv文件。
+    \item 仅保留与年龄相关的字段。
+    \item 将处理后的数据写入新的tsv文件中。
+\end{enumerate}
+
+
+\subsection*{Step 7\_6ren}
+\addcontentsline{toc}{subsection}{Step 7\_6ren}
+
+\textbf{ren.py}：该脚本的主要功能是筛选人口学相关字段。具体实现步骤如下：
+\begin{enumerate}
+    \item 读取输入的tsv文件。
+    \item 仅保留与性别、地区和职业相关的字段。
+    \item 将处理后的数据写入新的tsv文件中。
+\end{enumerate}
+
+\subsection*{Step 7\_7newall}
+\addcontentsline{toc}{subsection}{Step 7\_7newall}
+
+\textbf{newall.py}：该脚本的主要功能是合并新增的人口学指标和原来指定的所有字段。具体实现步骤如下：
+\begin{enumerate}
+    \item 读取输入的tsv文件。
+    \item 合并新增的人口学指标和原来指定的所有字段。
+    \item 将处理后的数据写入新的tsv文件中。
+\end{enumerate}
+
+
+\section{ICD10数据的模型训练和测试:ICD10train\_test文件夹}
+
+该文件夹和之前的train\_test文件夹结构一模一样，也包含了一个一键运行所有模型的脚本run\_all\_models.py
+
+值得一提的是在这里运行代码时我发现：
+
+我之前的代码在训练集上进行五折交叉验证时，选出最佳参数后还在训练集上重新进行了训练，再去测试集上评估模型性能，易造成数据泄露，导致过拟合。
+
+现在所有代码已经修改完善。
+
 \section{多模态模型的训练:multi\_model文件夹}
 
 \textbf{该文件夹下有四个模态的数据：}
 \begin{enumerate}
-    \item 颈动脉模态
-    \item 眼科模态
-    \item 生理模态
-    \item 人口学模态
+    \item 颈动脉模态train\_artery.tsv和test\_artery.tsv
+    \item 眼科模态train\_eye.tsv和test\_eye.tsv
+    \item 生理模态train\_physiology.tsv和test\_physiology.tsv
+    \item 人口学模态train\_ren.tsv和test\_ren.tsv
 \end{enumerate}
 
-\textbf{以及多模态模型的不同融合策略：}
+\textbf{以及age的数据:}
+\begin{enumerate}
+    \item train\_age.tsv
+    \item test\_age.tsv
+\end{enumerate}
+
+\textbf{一个晚期融合的训练脚本:multi\_model\_late\_fusion.py}
 \begin{itemize}
-    \item mid\_fusion/
-    \item late\_fusion/
+    \item 使用了Stacking元学习器（增强特征+正则化+交叉验证）
+    \item 使用了Blending（holdout验证集权重学习）
 \end{itemize}
+
+
+\section{一些可能用到的文件:copy文件夹}
+
+模型训练时，在五折交叉验证后，选出最优参数，在完整训练集上训练的simple1\_gpu.py
+
+ICD10数据合并后，筛选掉非汉族时，不保留NA的数据文件preprocessing4.tsv和preprocessing4\_ethnic\_filter\_report.txt
+
+训练多模态模型时，在五折交叉验证后，选出最优参数，在完整训练集上训练的1.py
+
+
+
+
+
 
 
 \chapter{工作内容}
@@ -983,6 +1066,7 @@ train_test/all/
     \item 在训练集上进行五折交叉验证，以MAE为指标寻找最佳超参数。
     \item 校正项计算函数。
     \item 在测试集上评估四种模型最佳参数的性能。
+    \item 更新了ICD10数据后，重新进行了模型训练和评估。
 \end{itemize}
 
 \subsection*{结果}
@@ -991,6 +1075,13 @@ train_test/all/
     \centering
     \includegraphics[width=1.0\textwidth]{assets/eye_table.png}
     \caption{所有模型结果对比}
+    \label{fig:model_comparison}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{assets/ICD10.png}
+    \caption{ICD10数据整合后所有模型结果对比}
     \label{fig:model_comparison}
 \end{figure}
 
@@ -1032,18 +1123,8 @@ train_test/all/
     \end{itemize}
 \end{itemize}
 
-\subsection*{4. ICD10数据预处理（ICD10）}
-\begin{itemize}
-    \item \textbf{目的：} 将 ICD10 数据与原始 CKB 数据进行整合，剔除有病的个体。
-    \item \textbf{执行：}
-    \begin{itemize}
-        \item 使用 \texttt{icd10.py} 脚本，将 ICD10 数据中的“yes”和“no”标记转换为1和0。
-        \item 通过 \texttt{merge\_files.py} 脚本，将处理后的 ICD10 数据与预处理后的 CKB 数据进行合并，生成了包含更多疾病信息的综合数据集。
-        \item 重复了数据预处理的步骤（剔除无诊断信息个体、划分训练测试集、剔除眼病患者等），确保合并后的数据集质量。
-    \end{itemize}
-\end{itemize}
 
-\subsection*{5. 模型训练和测试（train\_test）}
+\subsection*{4. 模型训练和测试（train\_test）}
 \begin{itemize}
     \item \textbf{目的：} 在不同数据集上训练多种机器学习模型，并评估其预测生物学年龄的性能。
     \item \textbf{执行：}
@@ -1054,13 +1135,40 @@ train_test/all/
     \end{itemize}
 \end{itemize}
 
-\subsection*{6.多模态模型的训练（multi\_modal）}
+
+\subsection*{5. ICD10数据预处理（ICD10）}
+\begin{itemize}
+    \item \textbf{目的：} 将 ICD10 数据与原始 CKB 数据进行整合，剔除有病的个体。
+    \item \textbf{执行：}
+    \begin{itemize}
+        \item 使用 \texttt{icd10.py} 脚本，将 ICD10 数据中的“yes”和“no”标记转换为1和0。
+        \item 通过 \texttt{merge\_files.py} 脚本，将处理后的 ICD10 数据与预处理后的 CKB 数据进行合并，生成了包含更多疾病信息的综合数据集。
+        \item 重复了数据预处理的步骤（剔除无诊断信息个体、划分训练测试集、剔除眼病患者等），确保合并后的数据集质量。
+        \item 增加了剔除ICD10数据中有病个体的步骤。
+        \item 增加了剔除非汉族个体的步骤（保留NA）。
+    \end{itemize}
+\end{itemize}
+
+
+\subsection*{6. ICD10数据合并后-模型训练和测试（ICD10train\_test）}
+\begin{itemize}
+    \item \textbf{目的：} 在不同数据集上训练多种机器学习模型，并评估其预测生物学年龄的性能。
+    \item \textbf{执行：}
+    \begin{itemize}
+        \item \textbf{模型选择：} 采用了 XGBoost、LightGBM、CatBoost 和 RandomForest 四种主流的决策树类算法。
+        \item \textbf{训练与验证：} 在训练集上进行五折交叉验证，以平均绝对误差（MAE）为指标，寻找每个模型的最佳超参数。
+        \item \textbf{性能评估：} 在独立的测试集上，评估了每种模型在不同数据组合（如 \texttt{all}, \texttt{artery}, \texttt{eye}, \texttt{ren} 等）下的预测性能。
+    \end{itemize}
+\end{itemize}
+
+
+\subsection*{7.多模态模型的训练（multi\_modal）}
 \begin{itemize}
     \item \textbf{目的：} 通过多模态数据融合，提高生物学年龄预测的准确性。
     \item \textbf{执行：}
     \begin{itemize}
-        \item 采用了不同的融合策略，包括中期融合和晚期融合。
-        \item 在每种融合策略下，使用相同的模型架构进行训练和评估。
+        \item 采用了晚期融合。
+        \item 使用了元学习器。
     \end{itemize}
 \end{itemize}
 
@@ -1094,7 +1202,7 @@ train_test/all/
 
 我使用了多种AI工具来辅助代码编写和调试工作，例如：
 
-GitHub Copilot , Cursor等第三方应用，调用了Claude Sonnet 3.7/4.0/4.1等模型。
+GitHub Copilot , Cursor等第三方应用，调用了Claude Sonnet 3.7/4.0等模型。
 
 一个较为明显的问题是AI工具在处理复杂逻辑时仍然存在局限性，有时无法完全理解开发者的意图，导致代码逻辑混乱或是结构混乱。（李祖琦师兄指出我用AI生成的代码有诸多问题）
 
